@@ -6,16 +6,6 @@
 [![License](https://img.shields.io/cocoapods/l/JKVerifyCodeView.svg?style=flat)](https://cocoapods.org/pods/JKVerifyCodeView)
 [![Platform](https://img.shields.io/cocoapods/p/JKVerifyCodeView.svg?style=flat)](https://cocoapods.org/pods/JKVerifyCodeView)
 
-## 导入方式
-
-     platform :ios, '9.0'
-     
-     target '项目名字' do
-       use_frameworks!
-       pod 'JKVerifyCodeView'
-
-     end
-
 ## Requirements
 
     Swift5.0+
