@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # JKVerifyCodeView
 
 [![CI Status](https://img.shields.io/travis/JoanKing/JKVerifyCodeView.svg?style=flat)](https://travis-ci.org/JoanKing/JKVerifyCodeView)
@@ -5,11 +6,19 @@
 [![License](https://img.shields.io/cocoapods/l/JKVerifyCodeView.svg?style=flat)](https://cocoapods.org/pods/JKVerifyCodeView)
 [![Platform](https://img.shields.io/cocoapods/p/JKVerifyCodeView.svg?style=flat)](https://cocoapods.org/pods/JKVerifyCodeView)
 
-## Example
+## 导入方式
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+     platform :ios, '9.0'
+     
+     target '项目名字' do
+       use_frameworks!
+       pod 'JKVerifyCodeView'
+
+     end
 
 ## Requirements
+
+    Swift5.0+
 
 ## Installation
 
