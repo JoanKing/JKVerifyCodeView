@@ -1,6 +1,4 @@
 
-![](https://user-images.githubusercontent.com/19670000/114378430-45129480-9bba-11eb-9051-74d89c3e15f3.png)
-
 [![CI Status](https://img.shields.io/travis/JoanKing/JKVerifyCodeView.svg?style=flat)](https://travis-ci.org/JoanKing/JKSwiftExtension)
 [![Version](https://img.shields.io/cocoapods/v/JKVerifyCodeView.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
 [![License](https://img.shields.io/cocoapods/l/JKVerifyCodeView.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
