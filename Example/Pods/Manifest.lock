@@ -1,0 +1,23 @@
+PODS:
+  - JKVerifyCodeView (0.1.0):
+    - SnapKit
+  - SnapKit (4.2.0)
+
+DEPENDENCIES:
+  - JKVerifyCodeView (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
+
+EXTERNAL SOURCES:
+  JKVerifyCodeView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  JKVerifyCodeView: 85ac3331d3fa72234e0295fb31a1bc4912bb3158
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+
+PODFILE CHECKSUM: 79596febd83dd0978cf92bda65f41df141211c5b
+
+COCOAPODS: 1.10.0

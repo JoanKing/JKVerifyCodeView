@@ -1,0 +1,6 @@
+framework module JKVerifyCodeView {
+  umbrella header "JKVerifyCodeView-umbrella.h"
+
+  export *
+  module * { export * }
+}

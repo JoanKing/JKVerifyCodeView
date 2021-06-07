@@ -1,0 +1,6 @@
+framework module Pods_JKVerifyCodeView_Example {
+  umbrella header "Pods-JKVerifyCodeView_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
