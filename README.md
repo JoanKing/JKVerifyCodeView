@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # JKVerifyCodeView
 
 [![CI Status](https://img.shields.io/travis/JoanKing/JKVerifyCodeView.svg?style=flat)](https://travis-ci.org/JoanKing/JKVerifyCodeView)
