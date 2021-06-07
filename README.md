@@ -18,6 +18,14 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'JKVerifyCodeView'
 ```
+
+## 视图层级
+  - 最底层一个隐藏的UITextView，上面铺的Label
+  - 输入焦点在UITextView，监听UITextView的输入，给Label赋值
+  - 通过Label显示输入的文字使用CAShapeLayer绘制光标
+  - 通过光标的显示隐藏来控制光标的移动
+  - 基础动画控制光标闪动
+ 
 ## 使用说明
 ![效果图](https://user-images.githubusercontent.com/19670000/120996449-e718bc80-c7b8-11eb-9e68-cb4657fa2567.gif)
 
