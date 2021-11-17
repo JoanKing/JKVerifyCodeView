@@ -124,6 +124,7 @@ public class JKVerifyCodeNumView: UIView {
                     make.width.height.equalTo(style.circleViewDiameter)
                     make.center.equalToSuperview()
                 }
+                circleView.isHidden = true
             }
         }
     }

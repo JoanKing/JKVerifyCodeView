@@ -15,7 +15,7 @@ class CheckeredViewController: UIViewController {
         let style = JKVerifyCodeStyle()
         style.cursorColor = UIColor.red
         style.verifyCodeStyleType = .checkered
-        style.secureTextEntry = false
+        style.secureTextEntry = true
         
         let codeView = JKVerifyCodeView(frame: CGRect(x: 62, y: 261, width: UIScreen.main.bounds.width - 124, height: 47), inputTextNum: 6, style: style)
         return codeView
