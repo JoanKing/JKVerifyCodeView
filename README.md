@@ -64,7 +64,7 @@ pod 'JKVerifyCodeView'
    
      ![下划线样式](https://user-images.githubusercontent.com/19670000/142150056-6271001d-a5e4-426a-8f5f-008d98bb9252.jpg)
      ![方格类型](https://user-images.githubusercontent.com/19670000/142150114-72b934f5-5627-4337-b1f5-628d59bb75ef.jpg)
-     
+     ![方格类型加密](https://user-images.githubusercontent.com/19670000/142155444-8fe70ab5-a429-48da-bcc7-8470b9176ba7.jpg)
 
 ## Author
 
@@ -76,5 +76,5 @@ JoanKing, chongwang27@creditease.cn
 JKVerifyCodeView is available under the MIT license. See the LICENSE file for more info.
 
 ## 版本记录
-  - 0.1.1：新增方格类型的样式，支持数据是否加密
+  - 0.1.2：新增方格类型的样式，支持数据是否加密
   - 0.1.0：支持下划线的样式
