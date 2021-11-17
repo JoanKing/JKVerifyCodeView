@@ -13,12 +13,28 @@ public class JKVerifyCodeNumView: UIView {
     private var cursorColor: UIColor {
         return style.cursorColor
     }
+    
+    /// 方格类型输入内容后的小圆点
+    private lazy var circleView: UIView = {
+        let view = UIView()
+        view.backgroundColor = style.circleViewColor
+        view.layer.cornerRadius = style.circleViewDiameter / 2.0
+        view.clipsToBounds = false
+        return view
+    }()
+    
     /// 验证码
     fileprivate lazy var numLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = style.numLabelFontSize
         label.textColor = style.numLabelTextColor
+        if style.verifyCodeStyleType == .checkered {
+            label.layer.borderColor = style.borderColor.cgColor
+            label.layer.borderWidth = style.borderWidth
+            label.font = style.secureTextEntry ? UIFont.systemFont(ofSize: 1) : style.numLabelFontSize
+        } else {
+            label.font = style.numLabelFontSize
+        }
         return label
     }()
     
@@ -98,6 +114,18 @@ public class JKVerifyCodeNumView: UIView {
             make.left.bottom.right.equalToSuperview()
             make.height.equalTo(kPixel)
         }
+        // 方各类型：添加隐藏圆点
+        if style.verifyCodeStyleType == .checkered {
+            // 方格，隐藏下划线
+            lineView.isHidden = true
+            if style.secureTextEntry {
+                self.addSubview(circleView)
+                circleView.snp.makeConstraints { make in
+                    make.width.height.equalTo(style.circleViewDiameter)
+                    make.center.equalToSuperview()
+                }
+            }
+        }
     }
     
     /// 更新控件的颜色，字体，背景色等等
@@ -154,6 +182,13 @@ public extension JKVerifyCodeNumView {
     /// - Parameter num: 验证码
     func setNum(num: String?) {
         numLabel.text = num
+        
+        guard style.verifyCodeStyleType == .checkered, style.secureTextEntry else { return }
+        if let _ = num {
+            circleView.isHidden = false
+        } else {
+            circleView.isHidden = true
+        }
     }
     
     // MARK: 设置底部线条是否为焦点

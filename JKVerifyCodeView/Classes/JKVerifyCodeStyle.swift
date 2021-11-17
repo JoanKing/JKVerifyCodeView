@@ -8,6 +8,13 @@
 // MARK:- 验证码的配置
 import Foundation
 
+public enum JKVerifyCodeStyleType {
+    /// 下划线
+    case underscore
+    /// 方格类型
+    case checkered
+}
+
 public class JKVerifyCodeStyle: NSObject {
     
     /// 输入框没有获取焦点的颜色
@@ -24,6 +31,20 @@ public class JKVerifyCodeStyle: NSObject {
     public var numLabelFontSize: UIFont = UIFont.systemFont(ofSize: 28)
     /// 验证码的字体
     public var numLabelTextColor: UIColor = UIColor(hexString: "#333333")
+    
+    // MARK: 方格类型的样式设置
+    /// 带边框的颜色
+    public var borderColor: UIColor = UIColor(hexString: "#EBEBEB")
+    /// 带边框的验证码颜色
+    public var borderWidth: CGFloat = (1.0 / UIScreen.main.scale)
+    /// 样式，默认下划线
+    public var verifyCodeStyleType: JKVerifyCodeStyleType = .underscore
+    /// 方格类型的隐藏圆的直径
+    public var circleViewDiameter: CGFloat = 8
+    /// 方各类型的隐藏圆的颜色
+    public var circleViewColor: UIColor = UIColor.black
+    /// 是否安全的输入
+    public var secureTextEntry: Bool = true
 }
 
 // MARK:- UIColor的构造方法

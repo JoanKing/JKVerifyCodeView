@@ -15,6 +15,11 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		84AEF2A02744D30100FD9DEE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEF29D2744D30100FD9DEE /* BaseViewController.swift */; };
+		84AEF2A12744D30100FD9DEE /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEF29E2744D30100FD9DEE /* BaseNavigationViewController.swift */; };
+		84AEF2A22744D30100FD9DEE /* BaseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEF29F2744D30100FD9DEE /* BaseViewCell.swift */; };
+		84AEF2A42744D39900FD9DEE /* CheckeredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEF2A32744D39900FD9DEE /* CheckeredViewController.swift */; };
+		84AEF2A62744D3AD00FD9DEE /* UnderscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEF2A52744D3AD00FD9DEE /* UnderscoreViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +47,12 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		748A101F89050A33E742EA05 /* Pods-JKVerifyCodeView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKVerifyCodeView_Example.debug.xcconfig"; path = "Target Support Files/Pods-JKVerifyCodeView_Example/Pods-JKVerifyCodeView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		80AF36AEC26B767584FBB9A4 /* Pods-JKVerifyCodeView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKVerifyCodeView_Tests.debug.xcconfig"; path = "Target Support Files/Pods-JKVerifyCodeView_Tests/Pods-JKVerifyCodeView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		84AEF29D2744D30100FD9DEE /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		84AEF29E2744D30100FD9DEE /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
+		84AEF29F2744D30100FD9DEE /* BaseViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewCell.swift; sourceTree = "<group>"; };
+		84AEF2A32744D39900FD9DEE /* CheckeredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckeredViewController.swift; sourceTree = "<group>"; };
+		84AEF2A52744D3AD00FD9DEE /* UnderscoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderscoreViewController.swift; sourceTree = "<group>"; };
+		84AEF2A72744D3CD00FD9DEE /* JKVerifyCodeView_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JKVerifyCodeView_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		90C418B7B35B5F7AFE46E21F /* JKVerifyCodeView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JKVerifyCodeView.podspec; path = ../JKVerifyCodeView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9AB21BA984B41FDE483D0F31 /* Pods-JKVerifyCodeView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKVerifyCodeView_Example.release.xcconfig"; path = "Target Support Files/Pods-JKVerifyCodeView_Example/Pods-JKVerifyCodeView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		9DFF6C9EBA90EB38D6418DDD /* Pods_JKVerifyCodeView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKVerifyCodeView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,9 +115,12 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				84AEF2A52744D3AD00FD9DEE /* UnderscoreViewController.swift */,
+				84AEF2A32744D39900FD9DEE /* CheckeredViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				84AEF29C2744D30100FD9DEE /* Base */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for JKVerifyCodeView";
@@ -117,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD41AFB9204008FA782 /* Info.plist */,
+				84AEF2A72744D3CD00FD9DEE /* JKVerifyCodeView_Example-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -146,6 +161,16 @@
 				BE05CC8E79231C74CFC53AEA /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		84AEF29C2744D30100FD9DEE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				84AEF29F2744D30100FD9DEE /* BaseViewCell.swift */,
+				84AEF29D2744D30100FD9DEE /* BaseViewController.swift */,
+				84AEF29E2744D30100FD9DEE /* BaseNavigationViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		FE015BAA027E7833B087E346 /* Pods */ = {
@@ -213,7 +238,7 @@
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = SGVDL6B99N;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1300;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -270,11 +295,13 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-JKVerifyCodeView_Example/Pods-JKVerifyCodeView_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JKSwiftExtension/JKSwiftExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/JKVerifyCodeView/JKVerifyCodeView.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKSwiftExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKVerifyCodeView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
@@ -335,7 +362,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				84AEF2A42744D39900FD9DEE /* CheckeredViewController.swift in Sources */,
+				84AEF2A22744D30100FD9DEE /* BaseViewCell.swift in Sources */,
+				84AEF2A62744D3AD00FD9DEE /* UnderscoreViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				84AEF2A02744D30100FD9DEE /* BaseViewController.swift in Sources */,
+				84AEF2A12744D30100FD9DEE /* BaseNavigationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +513,7 @@
 			baseConfigurationReference = 748A101F89050A33E742EA05 /* Pods-JKVerifyCodeView_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = SGVDL6B99N;
 				INFOPLIST_FILE = JKVerifyCodeView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -488,6 +521,8 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JKVerifyCodeView/JKVerifyCodeView_Example-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -498,6 +533,7 @@
 			baseConfigurationReference = 9AB21BA984B41FDE483D0F31 /* Pods-JKVerifyCodeView_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = SGVDL6B99N;
 				INFOPLIST_FILE = JKVerifyCodeView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -505,6 +541,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JKVerifyCodeView/JKVerifyCodeView_Example-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};

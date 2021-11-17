@@ -7,37 +7,32 @@
 //
 
 import UIKit
-import JKVerifyCodeView
-class ViewController: UIViewController {
+class ViewController: BaseViewController {
 
-    /// 验证码的View
-    lazy var codeView: JKVerifyCodeView = {
-        let codeView = JKVerifyCodeView(frame: CGRect(x: 62, y: 261, width: UIScreen.main.bounds.width - 124, height: 47), inputTextNum: 6, style: JKVerifyCodeStyle())
-        return codeView
-    }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.addSubview(codeView)
-        
-        codeView.textFiled.becomeFirstResponder()
-        
-        // 监听验证码输入的过程
-        codeView.textValueChange = { str in
-            print("输入中：\(str)")
-        }
-        
-        // 监听验证码输入完成
-        codeView.inputFinish = { str in
-            print("输入完成：\(str)")
-        }
+        self.title = "验证码"
+        headDataArray = ["验证码的样式"];
+        dataArray = [["下划线的样式", "方格样式"]]
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 }
 
+// MARK: -验证码的样式
+extension ViewController {
+    
+    // MARK: 1.1、下划线的样式
+    @objc func test11() {
+        self.navigationController?.pushViewController(UnderscoreViewController(), animated: true)
+    }
+    
+    // MARK: 1.2、方格样式
+    @objc func test12() {
+        self.navigationController?.pushViewController(CheckeredViewController(), animated: true)
+    }
+}

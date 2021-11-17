@@ -7,28 +7,30 @@
 
 import UIKit
 
+public typealias JKVerifyCodeTextViewClosure = (_ isTrigger: Bool) -> Bool
+
 public class JKVerifyCodeTextView: UITextField {
     
     /// 是否隐藏所有菜单
     var isHiddenAllMenu = false
     
     /// 粘贴 - 会调用两次此闭包  当isTrigger = true的时候才为实际粘贴
-    var pasteClouruse: ((_ isTrigger: Bool) -> Bool)?
+    var pasteClouruse: JKVerifyCodeTextViewClosure?
     
     /// 选择 - 会调用两次此闭包  当isTrigger = true的时候才为实际选择
-    var selectClouruse: ((_ isTrigger: Bool) -> Bool)?
+    var selectClouruse: JKVerifyCodeTextViewClosure?
     
     /// 选择全部 - 会调用两次此闭包  当isTrigger = true的时候才为实际选择全部
-    var selectAllClouruse: ((_ isTrigger: Bool) -> Bool)?
+    var selectAllClouruse: JKVerifyCodeTextViewClosure?
     
     /// 复制 - 会调用两次此闭包  当isTrigger = true的时候才为实际复制
-    var copyClouruse: ((_ isTrigger: Bool) -> Bool)?
+    var copyClouruse: JKVerifyCodeTextViewClosure?
     
     /// 剪切 - 会调用两次此闭包  当isTrigger = true的时候才为实际剪切
-    var cutClouruse: ((_ isTrigger: Bool) -> Bool)?
+    var cutClouruse: JKVerifyCodeTextViewClosure?
     
     /// 删除 - 会调用两次此闭包  当isTrigger = true的时候才为实际删除
-    var deleteClouruse: ((_ isTrigger: Bool) -> Bool)?
+    var deleteClouruse: JKVerifyCodeTextViewClosure?
     
     public override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         if isHiddenAllMenu {

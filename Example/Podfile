@@ -4,6 +4,7 @@ platform :ios, '9.0'
 
 target 'JKVerifyCodeView_Example' do
   pod 'JKVerifyCodeView', :path => '../'
+  pod 'JKSwiftExtension', '1.9.2'
 
   target 'JKVerifyCodeView_Tests' do
     inherit! :search_paths
