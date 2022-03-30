@@ -24,6 +24,10 @@ public class JKVerifyCodeView: UIView {
         textFiled.textColor = .clear
         textFiled.delegate = self
         textFiled.keyboardType = .decimalPad
+        if #available(iOS 12.0, *) {
+            textFiled.keyboardType = .numberPad
+            textFiled.textContentType = .oneTimeCode
+        }
         textFiled.addTarget(self, action: #selector(textFiledDidChange(_:)), for: .editingChanged)
         textFiled.addTarget(self, action: #selector(textFiledDidEnd(_:)), for: .editingDidEnd)
         self.addSubview(textFiled)
