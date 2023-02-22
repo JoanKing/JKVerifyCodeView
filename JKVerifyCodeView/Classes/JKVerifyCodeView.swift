@@ -5,8 +5,9 @@
 //  Created by IronMan on 2021/6/7.
 //
 
-import UIKit
+import Foundation
 import SnapKit
+import UIKit
 
 public class JKVerifyCodeView: UIView {
 
@@ -14,20 +15,18 @@ public class JKVerifyCodeView: UIView {
     public var textValueChange: ((_ text: String) -> Void)?
     /// 输入完成
     public var inputFinish: ((_ text: String) -> Void)?
-    /// 验证码输入框个数
-    private var inputTextNum: Int = 6
     /// 输入框
     public lazy var textFiled: JKVerifyCodeTextView = {
         let textFiled = JKVerifyCodeTextView()
         textFiled.tintColor = .clear
         textFiled.backgroundColor = .clear
         textFiled.textColor = .clear
-        textFiled.delegate = self
-        textFiled.keyboardType = .decimalPad
         if #available(iOS 12.0, *) {
             textFiled.keyboardType = .numberPad
             textFiled.textContentType = .oneTimeCode
         }
+        textFiled.delegate = self
+        textFiled.keyboardType = .decimalPad
         textFiled.addTarget(self, action: #selector(textFiledDidChange(_:)), for: .editingChanged)
         textFiled.addTarget(self, action: #selector(textFiledDidEnd(_:)), for: .editingDidEnd)
         self.addSubview(textFiled)
@@ -40,10 +39,11 @@ public class JKVerifyCodeView: UIView {
     /// 样式
     fileprivate var style: JKVerifyCodeStyle = JKVerifyCodeStyle()
     
-    public init(frame: CGRect, inputTextNum: Int, style: JKVerifyCodeStyle = JKVerifyCodeStyle()) {
+    private var inputFields: [JKVerifyCodeNumView] = [];
+    
+    public init(frame: CGRect, style: JKVerifyCodeStyle = JKVerifyCodeStyle()) {
         super.init(frame: frame)
         self.style = style
-        self.inputTextNum = inputTextNum
         initSubviews()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow(note:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
@@ -60,19 +60,47 @@ public class JKVerifyCodeView: UIView {
             make.right.equalToSuperview().offset(-style.padding)
             make.top.bottom.equalToSuperview()
         }
-        
         // 每个验证码框宽度
-        let itemWidth: CGFloat = (self.frame.size.width - style.padding * 2 - style.spacing * (CGFloat(inputTextNum) - 1)) / CGFloat(inputTextNum)
-        for i in 0..<inputTextNum {
+        var itemWidth: CGFloat = 0
+        // 左右两边的间距
+        var padding: CGFloat = 0
+        // 每个格子之间的间距
+        var space: CGFloat = 0
+        if style.isSquareBox {
+            itemWidth = self.frame.size.height
+            if style.isEvenlySplit {
+                padding = style.padding
+                space = (self.frame.size.width - style.padding * 2 - itemWidth * CGFloat(style.inputTextNum)) / (CGFloat(style.inputTextNum) - 1)
+            } else {
+                space = style.spacing
+                padding = (self.frame.size.width - style.spacing * CGFloat(style.inputTextNum - 1) - itemWidth * CGFloat(style.inputTextNum)) / 2.0
+            }
+        } else if style.isCustomBoxSize {
+            // 自定义盒子的大小
+            itemWidth = style.customBoxSize.width
+            padding = style.padding
+            let denominator = CGFloat(style.inputTextNum - 1)
+            let molecular = self.frame.width - style.padding * 2 - itemWidth * CGFloat(style.inputTextNum)
+            space = molecular / denominator
+
+        } else {
+            itemWidth = (self.frame.size.width - style.padding * 2 - style.spacing * (CGFloat(style.inputTextNum) - 1)) / CGFloat(style.inputTextNum)
+            padding = style.padding
+            space = style.spacing
+        }
+        inputFields.removeAll()
+        for i in 0..<style.inputTextNum {
             let codeNumView = JKVerifyCodeNumView(style: style)
             codeNumView.isUserInteractionEnabled = false
             self.addSubview(codeNumView)
             codeNumView.snp.makeConstraints { (make) in
                 make.width.equalTo(itemWidth)
-                make.left.equalToSuperview().offset(style.padding + CGFloat(i) * (style.spacing + itemWidth))
+                make.left.equalToSuperview().offset(padding + CGFloat(i) * (space + itemWidth))
                 make.top.bottom.equalToSuperview()
+                
             }
             codeViews.append(codeNumView)
+            inputFields.append(codeNumView)
             codeNumView.setCursorStatus(true)
         }
     }
@@ -94,22 +122,55 @@ public extension JKVerifyCodeView {
     
     // MARK: 清除所有输入
     /// 清除所有输入
-    func cleanCodes() {
+    func cleanCodes(isFoucsFirst: Bool = false) {
         textFiled.text = ""
         textFiledDidChange(textFiled)
-        allCursorHidden()
+        allCursorHidden(isFoucsFirst: isFoucsFirst)
     }
 
     // MARK: 隐藏所有输入光标
     /// 隐藏所有输入光标
-    func allCursorHidden() {
+    func allCursorHidden(isFoucsFirst: Bool = false) {
         DispatchQueue.main.async {
             for i in 0..<self.codeViews.count {
                 let codeView = self.codeViews[i]
-                codeView.setCursorStatus(true)
+                if i == 0 {
+                    codeView.setCursorStatus(isFoucsFirst ? false : true)
+                } else {
+                    codeView.setCursorStatus(true)
+                }
                 if codeView.getNum().count == 0 {
                     codeView.setBottomLineFocus(isFocus: false)
                 }
+            }
+        }
+    }
+    
+    //MARK: 修改边框的颜色
+    ///  修改边框的颜色
+    /// - Parameter color: 边框的颜色
+    func changeBoxBoxderColor(color: UIColor) {
+        guard style.verifyCodeStyleType == .checkered else {
+            return
+        }
+        for indexFiled in inputFields {
+            indexFiled.changeNumLabelBorderColor(color: color)
+        }
+    }
+    
+    //MARK: 改变单个输入框的颜色
+    /// 改变单个输入框的颜色
+    /// - Parameter color: 颜色
+    ///   - locationIndex: 位置
+    func changeSingleBoxBoxderColor(color: UIColor, locationIndex: Int) {
+        guard style.verifyCodeStyleType == .checkered else {
+            return
+        }
+        for (index, indexFiled) in inputFields.enumerated() {
+            if index == locationIndex {
+                indexFiled.changeNumLabelBorderColor(color: color)
+            } else {
+                indexFiled.changeNumLabelBorderColor(color: UIColor.clear)
             }
         }
     }
@@ -158,7 +219,7 @@ extension JKVerifyCodeView: UITextFieldDelegate {
             }
         }
         
-        if inputText.count > inputTextNum {
+        if inputText.count > style.inputTextNum {
             return false
         }
         return true
@@ -188,7 +249,7 @@ extension JKVerifyCodeView: UITextFieldDelegate {
             }
         }
         
-        if isInput, inputStr.count >= inputTextNum {
+        if isInput, inputStr.count >= style.inputTextNum {
             // 结束编辑
             DispatchQueue.main.async {
                 textFiled.resignFirstResponder()
@@ -199,8 +260,9 @@ extension JKVerifyCodeView: UITextFieldDelegate {
     
     @objc func textFiledDidEnd(_ textFiled: UITextField) {
         guard let inputStr = textFiled.text else { return }
-        if isInput, inputStr.count >= inputTextNum {
+        if isInput, inputStr.count >= style.inputTextNum {
             inputFinish?(inputStr)
         }
     }
 }
+

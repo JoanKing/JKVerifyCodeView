@@ -16,15 +16,21 @@ class CheckeredViewController: UIViewController {
         style.cursorColor = UIColor.red
         style.verifyCodeStyleType = .checkered
         style.secureTextEntry = false
-        
-        let codeView = JKVerifyCodeView(frame: CGRect(x: 62, y: 261, width: UIScreen.main.bounds.width - 124, height: 47), inputTextNum: 6, style: style)
+        style.customCornerRadius = 6
+        style.borderWidth = 0.5
+        style.inputTextNum = 5
+        style.padding = 30
+        style.isEvenlySplit = true
+        // style.borderColor = UIColor.blue
+        let codeView = JKVerifyCodeView(frame: CGRect(x: 32, y: 261, width: UIScreen.main.bounds.width - 64, height: 47), style: style)
+        codeView.backgroundColor = .yellow
         return codeView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "方格样式"
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .brown
         
         self.view.addSubview(codeView)
         
@@ -46,22 +52,23 @@ class CheckeredViewController: UIViewController {
                 return
             }
             print("输入完成：\(str)")
-            weakSelf.click1()
-            weakSelf.errorMessage = "我是错误值"
         
         }
     }
-    
     
 
     @objc func click1() {
         codeView.cleanCodes()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        codeView.textFiled.endEditing(true)
+       
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }

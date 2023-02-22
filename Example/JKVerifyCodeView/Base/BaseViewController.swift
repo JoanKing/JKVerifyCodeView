@@ -86,6 +86,7 @@ extension BaseViewController: UITableViewDelegate, UITableViewDataSource {
         label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .left
         label.numberOfLines = 0
+        label.textColor = UIColor.cN1
         sectionView.addSubview(label)
         return sectionView
     }

@@ -5,7 +5,7 @@
 //  Created by IronMan on 2021/6/7.
 //
 
-import UIKit
+import Foundation
 import SnapKit
 
 public class JKVerifyCodeNumView: UIView {
@@ -24,13 +24,11 @@ public class JKVerifyCodeNumView: UIView {
     }()
     
     /// 验证码
-    fileprivate lazy var numLabel: UILabel = {
+    private lazy var numLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = style.numLabelTextColor
         if style.verifyCodeStyleType == .checkered {
-            label.layer.borderColor = style.borderColor.cgColor
-            label.layer.borderWidth = style.borderWidth
             label.font = style.secureTextEntry ? UIFont.systemFont(ofSize: 1) : style.numLabelFontSize
         } else {
             label.font = style.numLabelFontSize
@@ -38,13 +36,13 @@ public class JKVerifyCodeNumView: UIView {
         return label
     }()
     
-    fileprivate lazy var lineView: UIView = {
+    private lazy var lineView: UIView = {
         let line = UIView()
         return line
     }()
     
     /// 光标
-    lazy var cursor: CAShapeLayer = {
+    private lazy var cursor: CAShapeLayer = {
         let shapeLayer = CAShapeLayer()
         shapeLayer.fillColor = cursorColor.cgColor
         shapeLayer.add(opacityAnimation, forKey: "kOpacityAnimation")
@@ -52,7 +50,7 @@ public class JKVerifyCodeNumView: UIView {
     }()
     
     /// 闪烁动画
-    fileprivate var opacityAnimation: CABasicAnimation = {
+    private var opacityAnimation: CABasicAnimation = {
         let opacityAnimation = CABasicAnimation.init(keyPath: "opacity")
         // 属性初始值
         opacityAnimation.fromValue = 1.0
@@ -78,8 +76,8 @@ public class JKVerifyCodeNumView: UIView {
         opacityAnimation.timingFunction = CAMediaTimingFunction.init(name: .easeIn)
         return opacityAnimation
     }()
-    /// 样式
-    fileprivate var style: JKVerifyCodeStyle = JKVerifyCodeStyle()
+    /// 验证码显示的样式
+    private var style: JKVerifyCodeStyle = JKVerifyCodeStyle()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -97,9 +95,16 @@ public class JKVerifyCodeNumView: UIView {
     
     /// 创建控件
     private func initUI() {
-        self.addSubview(numLabel)
-        self.addSubview(lineView)
-        self.layer.addSublayer(cursor)
+        self.backgroundColor = style.boxBackGroundColor
+        if style.verifyCodeStyleType == .checkered {
+            layer.borderColor = style.borderColor.cgColor
+            layer.borderWidth = style.borderWidth
+            layer.cornerRadius = style.customCornerRadius
+            clipsToBounds = false
+        }
+        addSubview(numLabel)
+        addSubview(lineView)
+        layer.addSublayer(cursor)
     }
     
     /// 添加控件和设置约束
@@ -141,13 +146,13 @@ public class JKVerifyCodeNumView: UIView {
     }
     
     /// 去后台
-    @objc fileprivate func enterBack() {
+    @objc private func enterBack() {
         // 移除动画
         cursor.removeAnimation(forKey: "kOpacityAnimation")
     }
     
     /// 回前台
-    @objc fileprivate func becomeActive() {
+    @objc private func becomeActive() {
         // 重新添加动画
         cursor.add(opacityAnimation, forKey: "kOpacityAnimation")
     }
@@ -197,9 +202,17 @@ public extension JKVerifyCodeNumView {
     /// - Parameter isFocus: 是否是焦点
     func setBottomLineFocus(isFocus: Bool) {
         if isFocus {
-            lineView.backgroundColor = style.lineViewFocusColor
+            if style.verifyCodeStyleType == .underscore {
+                lineView.backgroundColor = style.lineViewFocusColor
+            } else {
+                changeNumLabelBorderColor(color: UIColor.red)
+            }
         } else {
-            lineView.backgroundColor = style.lineViewNormalColor
+            if style.verifyCodeStyleType == .underscore {
+                lineView.backgroundColor = style.lineViewNormalColor
+            } else {
+                changeNumLabelBorderColor(color: UIColor.green)
+            }
         }
     }
     
@@ -210,11 +223,17 @@ public extension JKVerifyCodeNumView {
         return numLabel.text ?? ""
     }
 
-    // MARK: 返回验证码值
+    //MARK: 返回验证码值
     /// 返回验证码值
     /// - Returns:  验证码数值
     func getNum() -> String? {
         return numLabel.text
     }
+    
+    //MARK: 修改边框的颜色
+    /// 修改边框的颜色
+    /// - Parameter color: 边框颜色
+    func changeNumLabelBorderColor(color: UIColor) {
+        self.layer.borderColor = color.cgColor
+    }
 }
-

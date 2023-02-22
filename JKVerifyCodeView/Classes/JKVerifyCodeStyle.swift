@@ -15,30 +15,47 @@ public enum JKVerifyCodeStyleType {
     case checkered
 }
 
-public class JKVerifyCodeStyle: NSObject {
-    
-    /// 输入框没有获取焦点的颜色
-    public var lineViewNormalColor: UIColor = UIColor(hexString: "#EBEBEB")
-    /// 输入框获取焦点的颜色
-    public var lineViewFocusColor: UIColor = UIColor(hexString: "#999999")
+@objcMembers public class JKVerifyCodeStyle: NSObject {
+    //MARK: 😊通用设置
+    /// 验证码样式，默认下划线(目前支持下滑线和方格类型)
+    public var verifyCodeStyleType: JKVerifyCodeStyleType = .underscore
+    /// 输入框的个数
+    public var inputTextNum: Int = 6
     /// 光标的颜色
     public var cursorColor: UIColor = UIColor(hexString: "#FF4600")
+    
+    //MARK: 😊下划线类型的样式设置
+    /// 下划线输入框没有获取焦点的颜色
+    public var lineViewNormalColor: UIColor = UIColor(hexString: "#EBEBEB")
+    /// 下划线输入框获取焦点的颜色
+    public var lineViewFocusColor: UIColor = UIColor(hexString: "#999999")
+    
     /// 每个验证码输入框间距
     public var spacing: CGFloat = 10
+    /// 每个验证码输入框的是否是正方形
+    public var isSquareBox: Bool = false
+    /// 自定义盒子大小
+    public var isCustomBoxSize: Bool = false
+    /// 自定义盒子大小(只有上面生效的时候才生效)
+    public var customBoxSize: CGSize = CGSize.zero
+    /// 自定义盒子：圆角的大小
+    public var customCornerRadius: CGFloat = 0
+    /// 是否均分控件间距
+    public var isEvenlySplit: Bool = false
     /// 验证码输入框距离两边的边距
     public var padding: CGFloat = 0
     /// 验证码的字体
     public var numLabelFontSize: UIFont = UIFont.systemFont(ofSize: 28)
-    /// 验证码的字体
+    /// 验证码的字体颜色
     public var numLabelTextColor: UIColor = UIColor(hexString: "#333333")
     
-    // MARK: 方格类型的样式设置
+    // MARK: 😊方格类型的样式设置
     /// 带边框的颜色
     public var borderColor: UIColor = UIColor(hexString: "#EBEBEB")
-    /// 带边框的验证码颜色
+    /// 方格的背景色
+    public var boxBackGroundColor: UIColor = UIColor.clear
+    /// 带边框的验证码宽度
     public var borderWidth: CGFloat = (1.0 / UIScreen.main.scale)
-    /// 样式，默认下划线
-    public var verifyCodeStyleType: JKVerifyCodeStyleType = .underscore
     /// 方格类型的隐藏圆的直径
     public var circleViewDiameter: CGFloat = 8
     /// 方各类型的隐藏圆的颜色

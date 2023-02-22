@@ -14,8 +14,9 @@ class UnderscoreViewController: UIViewController {
     lazy var codeView: JKVerifyCodeView = {
         let style = JKVerifyCodeStyle()
         style.cursorColor = UIColor.red
-        
-        let codeView = JKVerifyCodeView(frame: CGRect(x: 62, y: 261, width: UIScreen.main.bounds.width - 124, height: 47), inputTextNum: 6, style: style)
+        style.spacing = 20
+        let codeView = JKVerifyCodeView(frame: CGRect(x: 62, y: 261, width: UIScreen.main.bounds.width - 124, height: 47), style: style)
+        // codeView.backgroundColor = .brown
         return codeView
     }()
     

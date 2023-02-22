@@ -1,6 +1,6 @@
 {
   "name": "JKVerifyCodeView",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "summary": "验证码的使用",
   "description": "主要适用于验证码的验证",
   "homepage": "https://github.com/JoanKing/JKVerifyCodeView",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/JoanKing/JKVerifyCodeView.git",
-    "tag": "0.1.1"
+    "tag": "0.1.2"
   },
   "social_media_url": "https://github.com/JoanKing",
   "platforms": {

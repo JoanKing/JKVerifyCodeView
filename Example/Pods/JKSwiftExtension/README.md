@@ -1,11 +1,12 @@
 ![](https://user-images.githubusercontent.com/19670000/114378430-45129480-9bba-11eb-9051-74d89c3e15f3.png)
 
-[![CI Status](https://img.shields.io/travis/JoanKing/JKSwiftExtension.svg?style=flat)](https://travis-ci.org/JoanKing/JKSwiftExtension)
-[![Version](https://img.shields.io/cocoapods/v/JKSwiftExtension.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
-[![License](https://img.shields.io/cocoapods/l/JKSwiftExtension.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
-[![Platform](https://img.shields.io/cocoapods/p/JKSwiftExtension.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
+<p align="center">
+<a href="https://cocoapods.org/pods/JKSwiftExtension"><img src="https://img.shields.io/cocoapods/v/JKSwiftExtension.svg?style=flat"></a>
+<a href="https://github.com/JoanKing/JKSwiftExtension/blob/master/LICENSE"><img src="https://img.shields.io/cocoapods/l/JKSwiftExtension.svg?style=flat"></a>
+<a href="https://cocoapods.org/pods/JKSwiftExtension"><img src="https://img.shields.io/cocoapods/p/JKSwiftExtension.svg?style=flat"></a>
+</p>
 
-## 组成部分
+## 组成部分  
 
     FoundationExtension：Foundation 类型的扩展
     UIKitExtension：UIKit类型的扩展
@@ -16,26 +17,105 @@
 
    每一个 `Extension` 都会对应一个测试用例的类，如果没有的说明还没有完善，如： String 的分类 `String+Extension` 的测试用例在 `StringExtensionViewController.swift` 里面
    ![WechatIMG160.jpeg](https://upload-images.jianshu.io/upload_images/1728484-f0bcaccd3f7d26b3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1024)
-
+   
 ## 导入方式
 
-     platform :ios, '9.0'
-     
-     target '项目名字' do
-       use_frameworks!
-       pod 'JKSwiftExtension'
+#### 方式一：Swift Package Manager
 
-     end
+- File > Swift Packages > Add Package Dependency
+- Add `https://github.com/JoanKing/JKSwiftExtension.git`
+- Select "Up to Next Major" with "2.0.0"
+
+#### 方式二：CocoaPods
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+use_frameworks!
+
+target 'MyApp' do
+  pod 'JKSwiftExtension'
+end
+```
 
 ## Requirements
 
     Swift5.0+
     
-## 这个基础库的目的：快速开发，不重复再去查找资料，如果觉得此项目对您的Swift学习有帮助，欢迎点赞...
-    
+## JKSwiftExtension基础库的目的：快速开发，不重复再去查找资料，如果觉得此项目对您有帮助，欢迎点赞...
+
+## 讨论
+- 微信号: wangc2318151015
+- 邮箱: jkironman@163.com
+<img src="https://user-images.githubusercontent.com/19670000/211969936-73f7824c-286c-4b83-8355-b6fb6989743a.jpeg" alt="微信交流群" width="220">
+
 ## 版本说明
+  - 2.2.6、版本(2023.01.12)
+      - (1)、UIFont扩展的优化
+         - 1、UIFont系统字体的扩展简化，例如regular的字体原来的UIFont.systemFont(ofSize: 20, weight: .regular)到UIFont.textR(20)
+         - 2、UIFont字体支持PingFangSC字体的优化使用，比如：PingFangSC-Regular使用方式为UIFont.pingFangR(20)
+         - 3、UIFont字体支持自定义字体，比如第三方字体的使用：UIFont.jk.customFont(26, fontName: "第三方字体的名字")
+      - (2)、NSAttributedString扩展增加测试用例
+  - 2.2.5、版本(2022.12.17) 代码格式检查
+  - 2.2.4、版本(2022.12.11)
+      - (1)、新增JKCircleProgressView圆形进度条
+      - (2)、UIView+Extension.swift部分bug修复
+      - (3)、JKPanView完善
+  - 2.2.3、版本
+      - (1)、String+Extension.swift
+         - 1、replacingCharacters 根据指定range替换内容
+         - 2、validIndex校验字符串位置是否合理做超出范围(针对表情)做处理
+      - (2)、UITextFiled+Extension.swift
+         - 1、限制字数的输入inputRestrictions的bugfix
+      - (3)、UITextView+Extension.swift
+         - 1、限制字数的输入inputRestrictions的bugfix
+  - 2.2.2、版本
+       - UIView+Extension.swift的圆角和阴影共存的bugfix
+       - 其他扩展的bugfix
+  - 2.2.1、版本
+      - (1)、String+Extension.swift 扩展
+         - 1、增加手机隐藏位数，可设置前后的隐藏位数，方法：hidePhone  
+         - 2、增加邮箱隐藏位数，可设置前后的隐藏位数，方法：hideEmail  
+         - 3、修复插入任意位置插入字符串的bug，方法：insertString
+     - (2)、UIDevice+Extension.swift 
+         - 1、修复有关获取sim卡信息强制解包崩溃的问题 
+         - 2、增加设备的震动相关方法，SystemSoundID、UINotificationFeedbackGenerator、UIImpactFeedbackGenerator
+     - (3)、UITextView+Extension.swift
+         - 1、修复方法inputRestrictions中当有字数限制，在复制内容的时候，不可截取的问题
+     - (4)、UITextField+Extension.swift
+         - 1、修复方法inputRestrictions中当有字数限制，在复制内容的时候，不可截取的问题
+   - 2.1.12、版本
+      - (1)、UIVisualEffectView+Extension.swift 新增 import UIKit
+      - (2)、新增 UITapGestureRecognizer+Extension.swift 扩展
+   - 2.1.10、版本
+      - (1)、String+Extension.swift 新增 匹配两个字符之间的内容 matchesMiddleContentOfCharacters
+      - (2)、CGFloat+Extension.swift、Float+Extension.swift 新增四舍五入方法：rounding(scale: Int16 = 1)
+      - (3)、NSDecimalNumberHandler+Extension.swift 新增四舍五入方法：rounding(value: Any, scale: Int16 = 0)
+      - (4)、JKEmptyView.swift 空白视图，使用简单，方便去显示空白或者无网络的界面，有待完善
+   - 2.1.9、版本：
+      - (1)、UIButton扩展里面的扩大点击事件，做了修复，之前把self.base写成了self，导致扩大范围失效，在2.1.9分支做了修复
+      - (2)、新增字符串有关子串在父字符串range的范围，返回一个子串的范围数组
+   - 2.1.7、版本：新增JKPanView(可拖动的卡片)，新增你一些扩展，修复一些bug
+      - (1)、新增可拖动的卡片视图(JKPanView)，只作为容器
+      - (2)、UITableView 新增扩展：切Section整体的cell和获取section的cell数量
+      - (3)、Date扩展新增Local本地化支持
+      - (4)、UserDefaults扩展新增对继承于Codable的模型，支持数组的存储
+      - (5)、修复UIImage扩展对图片的等比例缩放（scaleTo(scale: CGFloat) -> UIImage? ）有关新的size大小不对的问题
+   - 2.1.6、版本：NSAttributedString+Extension和UIButton+Extension扩展更新
+   - 2.1.5、版本：部分扩展的优化
+   - 2.1.2、版本：新增SmallTools：JKRollingNoticeView
+   - 2.1.1、版本：新增扩展内容，优化部分代码，修复JKWeakTimer的fire()崩溃问题
+   - 2.1.0、版本：修复判断13.3上UI_USER_INTERFACE_IDIOM的archive的bug，使用UIDevice.current.userInterfaceIdiom代替
+   - 2.0.9、版本：修复DateFormatter问题
+   - 2.0.8、版本：WKWebView 在Xcode13.3的bug修复
+   - 2.0.6、版本：修复Array+Extension 添加数组和 Int转CountableRange的问题
+   - 2.0.5、版本：修复JKWeakTimer在未开启下的崩溃
+   - 2.0.2、版本：新增JKMems辅助查看内存的小工具类和JKPlaceHolderTextView设置PlaceHolder
+   - 2.0.0、版本：开始支持 SPM(Swift Package Manager)
+   - 1.9.5、版本：DateFormatter耗时优化
+   - 1.9.2、版本：常量增加前缀`jk_`
    - 1.9.1、版本：mark注释更新
-   - 1.9.0、版本：1.9.0之后的版本去除JKEKEvent.swift和JKContactsKit.swift，原因是：对于日历和通讯录的API使用，苹果机身需要在：info.plist中添加对用的key和value
+   - 1.9.0、版本：1.9.0之后的版本去除JKEKEvent.swift和JKContactsKit.swift，原因是：对于日历和通讯录的API使用，苹果机审需要在：info.plist中添加对用的key和value
    - 1.8.9、版本：去除依赖库
    - 1.8.8、版本：kTabbatBottom 改为 kTabbarBottom
    - 1.8.7、版本：CALayer+Extension.swift中baseBasicAnimation动画repeatNumber: 重复的次数的使用

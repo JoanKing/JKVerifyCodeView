@@ -5,7 +5,7 @@
 //  Created by IronMan on 2021/6/7.
 //
 
-import UIKit
+import Foundation
 
 public typealias JKVerifyCodeTextViewClosure = (_ isTrigger: Bool) -> Bool
 

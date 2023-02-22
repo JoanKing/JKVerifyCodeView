@@ -13,6 +13,7 @@ class ViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "验证码"
+        self.view.backgroundColor = .white
         headDataArray = ["验证码的样式"];
         dataArray = [["下划线的样式", "方格样式"]]
     }
