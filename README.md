@@ -76,5 +76,6 @@ JoanKing, chongwang27@creditease.cn
 JKVerifyCodeView is available under the MIT license. See the LICENSE file for more info.
 
 ## 版本记录
+  - 0.1.5(2023.02.22)：支持输入框个数自定义
   - 0.1.2：新增方格类型的样式，支持数据是否加密
   - 0.1.0：支持下划线的样式
