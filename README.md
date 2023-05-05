@@ -69,7 +69,7 @@ pod 'JKVerifyCodeView'
 ## Author
 
 
-JoanKing, chongwang27@creditease.cn
+JoanKing, jkironman@163.com
 
 ## License
 
