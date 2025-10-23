@@ -13,6 +13,14 @@ public class JKVerifyCodeNumView: UIView {
     private var cursorColor: UIColor {
         return style.cursorColor
     }
+    /// 光标高度
+    private var cursorHeight: CGFloat? {
+        return style.cursorHeight
+    }
+    /// 光标宽度
+    private var cursorWidth: CGFloat {
+        return style.cursorWidth
+    }
     
     /// 方格类型输入内容后的小圆点
     private lazy var circleView: UIView = {
@@ -141,8 +149,15 @@ public class JKVerifyCodeNumView: UIView {
     
     public override func layoutSubviews() {
         super.layoutSubviews()
-        let path = UIBezierPath(rect: CGRect.init(x: self.frame.size.width * 0.5, y: self.frame.size.height * 0.1, width: 1, height: self.frame.size.height * 0.7))
-        cursor.path = path.cgPath
+        let cursorWidth = cursorWidth < self.frame.size.width ? cursorWidth : (cursorWidth - 1)
+        if let weakCursorHeight = cursorHeight {
+            let cursorOfHeight = weakCursorHeight < self.frame.size.height ? weakCursorHeight : (weakCursorHeight - 1)
+            let path = UIBezierPath(rect: CGRect.init(x: (self.frame.size.width - cursorWidth) * 0.5, y: (self.frame.size.height - cursorOfHeight) / 2.0, width: cursorWidth, height: cursorOfHeight))
+            cursor.path = path.cgPath
+        } else {
+            let path = UIBezierPath(rect: CGRect.init(x: (self.frame.size.width - cursorWidth), y: self.frame.size.height * 0.1, width: cursorWidth, height: self.frame.size.height * 0.7))
+            cursor.path = path.cgPath
+        }
     }
     
     /// 去后台

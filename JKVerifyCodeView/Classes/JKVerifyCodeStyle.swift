@@ -23,6 +23,10 @@ public enum JKVerifyCodeStyleType {
     public var inputTextNum: Int = 6
     /// 光标的颜色
     public var cursorColor: UIColor = UIColor(hexString: "#FF4600")
+    /// 光标的高度，如果设置了就固定高度居中，不设置就跟对方格大小来适配
+    public var cursorHeight: CGFloat?
+    /// 默认1
+    public var cursorWidth: CGFloat = 1
     
     //MARK: 😊下划线类型的样式设置
     /// 下划线输入框没有获取焦点的颜色

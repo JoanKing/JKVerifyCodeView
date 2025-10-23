@@ -14,6 +14,8 @@ class CheckeredViewController: UIViewController {
     lazy var codeView: JKVerifyCodeView = {
         let style = JKVerifyCodeStyle()
         style.cursorColor = UIColor.red
+        style.cursorHeight = 20
+        style.cursorWidth = 3
         style.verifyCodeStyleType = .checkered
         style.secureTextEntry = false
         style.customCornerRadius = 6
