@@ -237,12 +237,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = BF6M94K527;
+						DevelopmentTeam = Q24HFFF5V3;
 						LastSwiftMigration = 1300;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = BF6M94K527;
+						DevelopmentTeam = Q24HFFF5V3;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -515,7 +515,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = BF6M94K527;
+				DEVELOPMENT_TEAM = Q24HFFF5V3;
 				INFOPLIST_FILE = JKVerifyCodeView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -535,7 +535,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = BF6M94K527;
+				DEVELOPMENT_TEAM = Q24HFFF5V3;
 				INFOPLIST_FILE = JKVerifyCodeView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -552,7 +552,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 80AF36AEC26B767584FBB9A4 /* Pods-JKVerifyCodeView_Tests.debug.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = BF6M94K527;
+				DEVELOPMENT_TEAM = Q24HFFF5V3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -575,7 +575,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0364531FADCF4EBB4EC3453F /* Pods-JKVerifyCodeView_Tests.release.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = BF6M94K527;
+				DEVELOPMENT_TEAM = Q24HFFF5V3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",

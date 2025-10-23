@@ -1,6 +1,6 @@
 PODS:
-  - JKSwiftExtension (2.2.7)
-  - JKVerifyCodeView (0.1.2):
+  - JKSwiftExtension (2.2.9)
+  - JKVerifyCodeView (0.1.5):
     - SnapKit
   - SnapKit (4.2.0)
 
@@ -18,10 +18,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JKSwiftExtension: 5e87a48beeccd0acc0e95b2cad9248a4444505dc
-  JKVerifyCodeView: 9a08c2cca10aeda9cb7cec5095d052ea03796c13
+  JKSwiftExtension: acbcfb19b1a9bbfb1e60fef494ebd1aba8c9d9a0
+  JKVerifyCodeView: 9b2a1289c0582571d6659d63fa90dafed6a17189
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 06ff3b39bb9b51f06616fa2eb673d53529b3bb94
+PODFILE CHECKSUM: fa447d6568f239d08fb5069e94298d98a8d7e474
 
 COCOAPODS: 1.11.3
