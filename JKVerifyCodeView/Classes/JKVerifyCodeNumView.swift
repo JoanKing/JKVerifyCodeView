@@ -155,7 +155,7 @@ public class JKVerifyCodeNumView: UIView {
             let path = UIBezierPath(rect: CGRect.init(x: (self.frame.size.width - cursorWidth) * 0.5, y: (self.frame.size.height - cursorOfHeight) / 2.0, width: cursorWidth, height: cursorOfHeight))
             cursor.path = path.cgPath
         } else {
-            let path = UIBezierPath(rect: CGRect.init(x: (self.frame.size.width - cursorWidth), y: self.frame.size.height * 0.1, width: cursorWidth, height: self.frame.size.height * 0.7))
+            let path = UIBezierPath(rect: CGRect.init(x: (self.frame.size.width - cursorWidth) * 0.5, y: self.frame.size.height * 0.1, width: cursorWidth, height: self.frame.size.height * 0.7))
             cursor.path = path.cgPath
         }
     }
