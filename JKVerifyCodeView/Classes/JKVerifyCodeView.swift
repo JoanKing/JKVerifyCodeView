@@ -10,7 +10,8 @@ import SnapKit
 import UIKit
 
 public class JKVerifyCodeView: UIView {
-
+    /// 是否输入完自动隐藏键盘
+    public var isAutoResignFirstResponder: Bool = true
     /// 输入值改变
     public var textValueChange: ((_ text: String) -> Void)?
     /// 输入完成
@@ -251,8 +252,11 @@ extension JKVerifyCodeView: UITextFieldDelegate {
         
         if isInput, inputStr.count >= style.inputTextNum {
             // 结束编辑
-            DispatchQueue.main.async {
-                textFiled.resignFirstResponder()
+            if isAutoResignFirstResponder {
+                // 隐藏键盘
+                DispatchQueue.main.async {
+                    textFiled.resignFirstResponder()
+                }
             }
             allCursorHidden()
         }

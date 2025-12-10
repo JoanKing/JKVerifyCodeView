@@ -17,6 +17,8 @@ class UnderscoreViewController: UIViewController {
         style.spacing = 20
         let codeView = JKVerifyCodeView(frame: CGRect(x: 62, y: 261, width: UIScreen.main.bounds.width - 124, height: 47), style: style)
         // codeView.backgroundColor = .brown
+        // 是否自动输入完隐藏键盘
+        codeView.isAutoResignFirstResponder = false
         return codeView
     }()
     
