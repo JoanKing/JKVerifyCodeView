@@ -26,14 +26,13 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/JoanKing/JKVerifyCodeView.git', :tag => s.version.to_s }
   s.social_media_url   = "https://github.com/JoanKing"
   # 最低要求的系统版本
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '13.0'
   # swift 支持的版本
   s.swift_version = '5.0'
   # 要求是ARC
   s.requires_arc = true
   # 表示源文件的路径，这个路径是相对podspec文件而言的。（这属性下面单独讨论）
   s.source_files = 'JKVerifyCodeView/Classes/**/*'
-  s.ios.deployment_target = '9.0'
 
   # s.resource_bundles = {
   #   'JKVerifyCodeView' => ['JKVerifyCodeView/Assets/*.png']
